@@ -1,3 +1,11 @@
+// git hub 백업 주소
+
+// https://github.com/jackiehoon/dongyang-react-study
+
+// 자바스크립드 deep dive
+//모던 자바스크립트 Deep Dive 책 추천
+// front 면접 질문 (개념 학습하기)
+
 //let const
 //1. 유효범위 (scope)
 //var는 함수 단위 scope
@@ -86,3 +94,11 @@ const arr1 = [1, 2, 3, 4];
 const [first, second] = arr;
 
 const arr2 = [0, ...arr1, 5];
+
+//gitignore 를 써서 진짜 필요한 파일 소스만 받아서 사용할 수 있게 만든다. 예를 들어서 공통에서 소스 배포를 할시에 build된 파일을 구분적으로 ingnore를 해제해
+
+//index.js 배포할경우 import를 번들링 해서 배포를 해주어야 한다.
+
+// webpack : 번들러
+// babel  : 구버전 브라우저를 위해서 최신문법 -> 예전 문법으로 변형  ex) 화살표 함수
+// polyfill : 구브라우저에 없는 함수를 채워줌 함수
