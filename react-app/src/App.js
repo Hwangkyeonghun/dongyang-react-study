@@ -11,11 +11,13 @@ import Counter3 from "./components/Counter3";
 import Average from "./components/Average";
 import InputFile from "./components/InputFile";
 import Todo from "./components/Todo";
+import Axios from "./components/Axios";
+import Bootstrap from "./components/Bootstrap";
 
 function App() {
   return (
     <>
-      <Todo />
+      <Bootstrap />
     </>
   );
 }

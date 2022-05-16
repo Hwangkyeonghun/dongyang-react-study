@@ -118,3 +118,8 @@ const arr2 = [0, ...arr1, 5];
 //     console.log("cleanup");
 //   }
 // },[name])
+
+// ssr csr  차이점   https://d2.naver.com/helloworld/7804182
+
+//redux mobx  recoil 전역상태 관리 useContext -> hooks  Context를 따로 빼서  다른곳에 있는 함수도 호출가능하다.
+// recoil 을 쓰면 전역상태로 관리가 가능하다.

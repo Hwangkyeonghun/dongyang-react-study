@@ -5,9 +5,11 @@ const Counter = () => {
   const [number, setNumber] = useState(5);
 
   const handleClick = () => {
-    console.log(number);
     //set 함수는 비동기 방식이다.
-    setNumber(number + 1);
+    setNumber((prev) => prev + 1);
+    //prev 예전 값을 가지고 더하면 덧셈이 가능하다.
+
+    console.log(number);
   };
 
   return (

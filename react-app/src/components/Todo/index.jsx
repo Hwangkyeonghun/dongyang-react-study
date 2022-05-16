@@ -1,55 +1,66 @@
 import { useState, useRef } from "react";
 import styled from "styled-components";
-
+import Item from "./Item";
+import Form from "./Form";
 const todoListState = [
   {
     id: 1,
     text: "리액트 기초 알아보기",
+    isDone: true,
   },
   {
     id: 2,
     text: "리액트 기초2 알아보기",
+    isDone: true,
   },
 ];
 const Todo = () => {
-  const [text, setText] = useState("");
   const [todoList, setTodoList] = useState(todoListState);
   const number = useRef(todoListState.length + 1);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newTodoList = [...todoList, { id: number.current, text: text }];
+  const handleAdd = (text) => {
+    const newTodoList = [
+      ...todoList,
+      { id: number.current, text, isDone: true },
+    ];
     setTodoList(newTodoList);
-    setText("");
     number.current = number.current += 1;
   };
-
   const handleDelete = (deleteId) => {
     console.log("todoList:" + todoList.id);
     const newList = todoList.filter((e) => e.id !== deleteId);
     setTodoList(newList);
+  };
+  const handleChecked = (id) => {
+    // id로  item 찾아서 isDone을 반대로 바꿔주기
+    const newList2 = todoList.map((item) =>
+      item.id === id ? { ...item, isDone: !item.isDone } : item
+    );
+    //   if (item !== id) {
+    //     return item;
+    //   } else {
+    //     const newItem = { ...item, isDone: !item.isDone };
+    //     return newItem;
+    //   }
+    // });
+    // setTodoList(newList2);
+    setTodoList(newList2);
   };
 
   return (
     <Layout>
       <Container>
         <Title>일정관리</Title>
-        <Form onSubmit={handleSubmit}>
-          <InputText onChange={(e) => setText(e.target.value)} />
-          <BtnSubmit>추가</BtnSubmit>
-        </Form>
+        <Form onAdd={handleAdd} />
         <Body>
           <List>
-            {todoList.map((todo) => (
-              <Item key={todo.id}>
-                <label>
-                  <input type="checkbox" />
-                  <Content>{todo.text}</Content>
-                </label>
-                <BtnDelete onClick={() => handleDelete(todo.id)}>
-                  삭제
-                </BtnDelete>
-              </Item>
+            {todoList.map((item, i) => (
+              <Item
+                key={item.id}
+                data={item}
+                onDelete={handleDelete}
+                onChecked={handleChecked}
+              />
             ))}
           </List>
         </Body>
@@ -76,13 +87,6 @@ const Title = styled.div`
   color: #dfd1d1;
   padding: 10 px;
 `;
-const Form = styled.form`
-  display: flex;
-`;
-const InputText = styled.input`
-  flex: 1;
-`;
-const BtnSubmit = styled.button``;
 
 const Body = styled.div`
   background: #dfd1d1; //rgb(75, 64, 64)
@@ -94,15 +98,5 @@ const List = styled.ul`
   padding: 0;
   margin: 0;
 `;
-const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  & + & {
-    border-top: 1px solid #dfd1d1;
-  }
-`;
-const Content = styled.span``;
-const BtnDelete = styled.button``;
 
 export default Todo;
