@@ -12,7 +12,7 @@
 //let, const :블록단위
 //2. 재할당 가능
 //  var, let : 가능
-// const  :  불가능
+//  const  :  불가능
 
 for (var i = 0; i < 5; i++) {
   console.log(" 안쪽" + i);
@@ -102,3 +102,19 @@ const arr2 = [0, ...arr1, 5];
 // webpack : 번들러
 // babel  : 구버전 브라우저를 위해서 최신문법 -> 예전 문법으로 변형  ex) 화살표 함수
 // polyfill : 구브라우저에 없는 함수를 채워줌 함수
+
+//immutable 객체도 불변성 유지가 필요하다. 그래서 객체를 복사할경우 객체의 주소 참조가 아닌 값을 ... 스프레드 연산자로 복제를 해야 불변성 유지가 쉽다.
+
+// build 할때 npm build 를 한 파일을 통으로 배포하면 된다. version update 등 여러가지 기능을 수행함.
+
+// JSX를 리턴한다.
+
+//name 이 바뀔때 실행된다. retrun은 랜더링이 되기 직전에 return값을 반환한다.
+
+// useEffect(()=>{
+//   console.log("asdf")
+
+//   return () => {
+//     console.log("cleanup");
+//   }
+// },[name])

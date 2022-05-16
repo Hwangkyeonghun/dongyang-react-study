@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const EventPractice = () => {
   //SyntheticEvent 로 웹브라우저의 Event 를 감싸는 객체이다.
   //비동기적으로 객체를 참조할 일이 있다면 e.persist() 함수를 호출해 주어야 합니다.
