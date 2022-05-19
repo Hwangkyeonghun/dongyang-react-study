@@ -123,3 +123,13 @@ const arr2 = [0, ...arr1, 5];
 
 //redux mobx  recoil 전역상태 관리 useContext -> hooks  Context를 따로 빼서  다른곳에 있는 함수도 호출가능하다.
 // recoil 을 쓰면 전역상태로 관리가 가능하다.
+
+//함수형 선언형
+
+// youtube  event loop 유튜브로 보기
+
+// stack 이 다 비워진 후에 event loop 가 stack으로 올라간다..  web Api
+
+//콜 스택
+
+// 쓰로틀링 (클릭후 1초동안 버튼이 작동하지 않게하는 것..)  ex) 연관검색어  키인되고 자동으로 찾아주는 것 그런데 한글자한글자가 아니라 시간으로  최초입력 시간으로 api를 호출함.

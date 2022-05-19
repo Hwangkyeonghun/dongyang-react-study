@@ -61,6 +61,7 @@ const Button = styled.button`
 `;
 const Menu = styled.ul`
   /* display: ${({ isShow }) => !isShow && "none"}; isShow={isShow} */
+  z-index: 10;
   top: 45px;
   background: white;
   position: absolute;
