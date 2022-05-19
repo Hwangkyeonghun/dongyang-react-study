@@ -133,3 +133,53 @@ const arr2 = [0, ...arr1, 5];
 //콜 스택
 
 // 쓰로틀링 (클릭후 1초동안 버튼이 작동하지 않게하는 것..)  ex) 연관검색어  키인되고 자동으로 찾아주는 것 그런데 한글자한글자가 아니라 시간으로  최초입력 시간으로 api를 호출함.
+
+//recoil, redux : 전역상태관리 (로그인여부 session 정보 등등)
+//react -query   ( api 관련)
+
+//  https://developers.naver.com/docs/common/openapiguide/ 네이버 오픈 api
+// 등록 발급
+//cors에러
+//https://bohyeon-n.github.io/deploy/web/cors.html
+
+//CORS : 브라우저 js에서 다른 도메인으로 http 요청하면 요청을 제한함.
+// 1. 요청서버에서 프론트도메인을 허용
+// 2. 서버를 직접만들어서 프론트  -> 커스텀서버 -> naver 서버
+// 3. webpack dev server의   proxy 서버 이용
+
+// [1] : AJAX 구현시 한번은 접하게 되는 문제
+// 웹개발 하면서 필연적으로 한번은 누구나 만나보게 되는 문제중 하나.
+// AJAX 비동기 통신을 할 때 도메인이 서로 다른 경우 --> 호출이 안되는 문제가 발생.
+// 쉽게말해, 다른 도메인 간에는 주고 받을 수 없다.
+// 이유 --> 신뢰와 관련 --> 자바크립트 보안 정책 중에 하나 --> Same-Origin Policy 정책에 위배되기 때문.
+
+// [2] : 일반적인 경우
+// 	1. XMLHttpRequest 객체 생성한 후 --> xhr.open() 메서드로 요청을 준비 --> xhr.sned() 메서드로 서버전송
+// 	2. 서버로부터 응답이 오면 --> 정의해 놓은 콜백함수가 호출되면서 실행--> 비동기 처리.
+
+// [3] : 서로 다른 도메인 예
+// 예1 --> http://www.aaa.com vs http://www.bbb.com
+// 예2 --> http://a.testserver.com vs http://b.testserver.com 도메인은 같은데 호스트가 다르다.a와 b
+
+// [4] : 문제해결 --> 꽤 복잡(?)
+// 가장 쉽게 해결하는 방법 --> 서버 설정의 권한을 가지고 있다면 서버 설정을 통해서 쉽게 문제해결 가능
+// (윈도우 서버기준)IIS,아파치
+// 서버 설정에 대한 권한이 없다면 --> ???
+
+// [5]: 통상적으로 많이 쓰이는 방법들 --> 참고 정도만.
+// 	1.서버 설정을 바꿔주는게 가장 좋음
+// 	2.프락시(Proxy) 서버를 이용하는 방법.
+// 	3.JSONP를 이용하는 방법.
+// 			-비표준 --> 제법 사용 --> <script> 태그 사용.
+// 			-이건 호출이 GET 방식이라 넘기는 파라미터 값들이 너무 많다면 권장되지 않음 --> 작다면 가능.
+// 	4.헤더(Header) 변경.
+
+// [6] : 서버 설정 변경 --> 윈도우 기준 --> IIS 웹서버 기준.
+// 설정을 변경할 파일 이름 --> web.config  <--코드를 추가한다.
+// < httpProtocool>
+// 	<customHeaders>
+// 		<add name="Access-Control-Allow-Origin" value="*"/>
+// 	</customHeaders>
+// </ httpProtocool>
+
+///https://blog.naver.com/PostView.naver?blogId=dktmrorl&logNo=222410286839 프록시 공부
